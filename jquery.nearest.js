@@ -1,4 +1,4 @@
-/*
+/*!
  * jQuery nearest
  * Example at: http://jsbin.com/ucavon/4/edit
  * Copyright (c) 2012 J. Smith (@jjenzz)
