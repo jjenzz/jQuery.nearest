@@ -9,15 +9,17 @@
  * $('.foo').nearest('.bar');
  * $('.foo').nearest('p');
  */
-$.fn.nearest = function(selector) {
-  var nearest,
-      parent = this[0] ? this[0].parentNode : 0,
-      hasQsa = parent && parent.querySelectorAll;
-  while (parent) {
-    nearest = hasQsa ?
-      parent.querySelectorAll(selector) : $(parent).find(selector);
-    if (nearest.length) break;
-    parent = parent.parentNode;
-  }
-  return $(nearest);
-};
+(function($) {
+  $.fn.nearest = function(selector) {
+    var nearest,
+        parent = this[0] ? this[0].parentNode : 0,
+        hasQsa = parent && parent.querySelectorAll;
+    while (parent) {
+      nearest = hasQsa ?
+        parent.querySelectorAll(selector) : $(parent).find(selector);
+      if (nearest.length) break;
+      parent = parent.parentNode;
+    }
+    return $(nearest);
+  };
+}(jQuery));
