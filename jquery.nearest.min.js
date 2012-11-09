@@ -1,6 +1,6 @@
 /*!
  * jQuery nearest
- * Example at: http://jsbin.com/uquhic/latest
+ * Example at: http://jsbin.com/jquery_nearest
  * Copyright (c) 2012 J. Smith (@jjenzz)
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
