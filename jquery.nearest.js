@@ -8,7 +8,7 @@
  */
 (function($) {
   $.fn.nearest = function(selector) {
-    var nearest, el, p,
+    var self, nearest, el, s, p,
         hasQsa = document.querySelectorAll;
 
     function update(el) {
@@ -16,10 +16,10 @@
     }
 
     this.each(function() {
-      var self = this;
+      self = this;
 
       $.each(selector.split(','), function() {
-        var s = $.trim(this);
+        s = $.trim(this);
 
         if (!s.indexOf('#')) {
           // is an ID selector
