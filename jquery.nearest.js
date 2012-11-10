@@ -8,21 +8,38 @@
  */
 (function($) {
   $.fn.nearest = function(selector) {
-    var nearest, parent, el,
+    var nearest, el, p,
         hasQsa = document.querySelectorAll;
 
-    this.each(function() {
-      parent = this.parentNode;
+    function update(el) {
+      nearest = nearest ? nearest.add(el) : el;
+    }
 
-      while (parent) {
-        el = hasQsa ?
-          $(parent.querySelectorAll(selector)) : $(parent).find(selector);
-        if (el.length) {
-          nearest = nearest ? nearest.add(el) : el;
-          break;
+    this.each(function() {
+      var self = this;
+
+      $.each(selector.split(','), function() {
+        var s = $.trim(this);
+
+        if (!s.indexOf('#')) {
+          // is an ID selector
+          // so do a regular
+          // $(id) selection
+          update($(s));
+        } else {
+          // is a class or tag
+          // selector so need to
+          // traverse
+          p = self.parentNode;
+          while (p) {
+            el = hasQsa ? $(p.querySelectorAll(s)) : $(p).find(s);
+            update(el);
+            if (el.length) break;
+            p = p.parentNode;
+          }
         }
-        parent = parent.parentNode;
-      }
+      });
+
     });
 
     return nearest;
