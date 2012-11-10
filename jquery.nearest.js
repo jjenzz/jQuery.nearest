@@ -8,11 +8,11 @@
  */
 (function($) {
   $.fn.nearest = function(selector) {
-    var nearest, parent, hasQsa, el;
+    var nearest, parent, el,
+        hasQsa = document.querySelectorAll;
 
     this.each(function() {
       parent = this.parentNode;
-      hasQsa = parent && parent.querySelectorAll;
 
       while (parent) {
         el = hasQsa ?
