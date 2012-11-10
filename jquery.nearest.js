@@ -5,21 +5,26 @@
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
- *
- * $('.foo').nearest('.bar');
- * $('.foo').nearest('p');
  */
 (function($) {
   $.fn.nearest = function(selector) {
-    var nearest,
-        parent = this[0] ? this[0].parentNode : 0,
-        hasQsa = parent && parent.querySelectorAll;
-    while (parent) {
-      nearest = hasQsa ?
-        parent.querySelectorAll(selector) : $(parent).find(selector);
-      if (nearest.length) break;
-      parent = parent.parentNode;
-    }
-    return $(nearest);
+    var nearest, parent, hasQsa, el;
+
+    this.each(function() {
+      parent = this.parentNode;
+      hasQsa = parent && parent.querySelectorAll;
+
+      while (parent) {
+        el = hasQsa ?
+          $(parent.querySelectorAll(selector)) : $(parent).find(selector);
+        if (el.length) {
+          nearest = nearest ? nearest.add(el) : el;
+          break;
+        }
+        parent = parent.parentNode;
+      }
+    });
+
+    return nearest;
   };
 }(jQuery));
