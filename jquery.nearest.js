@@ -22,14 +22,12 @@
         s = $.trim(this);
 
         if (!s.indexOf('#')) {
-          // is an ID selector
-          // so do a regular
-          // $(id) selection
+          // is an ID selector so do
+          // a regular $(id) query
           update($(s));
         } else {
-          // is a class or tag
-          // selector so need to
-          // traverse
+          // is a class or tag selector
+          // so need to traverse
           p = self.parentNode;
           while (p) {
             el = hasQsa ? $(p.querySelectorAll(s)) : $(p).find(s);
