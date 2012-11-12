@@ -18,8 +18,24 @@ How do I use it?
 ----------------
     $('.foo').nearest('.bar');
 
-A more practical use case would be:
+Consider a page with a generic toggler script:
 
-    $('.foo').on('click', function() {
-        $(this).nearest('.bar').css('background', 'red');
+    <div class="module">
+        <span class="toggler">Foo</span>
+        <div class="toggler-content">Bar</div>
+    </div>
+
+    <div class="module">
+        <ul>
+            <li>
+                <span class="toggler">Foo</span>
+            </li>
+        </ul>
+        <div class="toggler-content">Bar</div>
+    </div>
+
+The following use of `.nearest()` would allow you to toggle the nearest element matching the `.toggler-content` selector:
+
+    $('.toggler').on('click', function() {
+        $(this).nearest('.toggler-content').slideToggle();
     });
