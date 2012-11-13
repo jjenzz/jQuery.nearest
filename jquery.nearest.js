@@ -1,5 +1,5 @@
 /*!------------------------------------------------------
- * jQuery nearest v1.0.2
+ * jQuery nearest v1.0.3
  * http://github.com/jjenzz/jQuery.nearest
  * ------------------------------------------------------
  * Copyright (c) 2012 J. Smith (@jjenzz)
@@ -42,6 +42,6 @@
 
     });
 
-    return nearest;
+    return nearest || $();
   };
 }(jQuery, document));
