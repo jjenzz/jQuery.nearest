@@ -24,7 +24,7 @@
 
         if (!s.indexOf('#')) {
           // selector starts with an ID
-          update((s.split(' ').length === 1 ? d.getElementById(s) : $(s)));
+          update((s.split(' ').length === 1 ? d.getElementById(s.slice(1)) : $(s)));
         } else {
           // is a class or tag selector
           // so need to traverse
