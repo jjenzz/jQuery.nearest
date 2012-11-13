@@ -1,5 +1,5 @@
 /*!------------------------------------------------------
- * jQuery nearest v1.0.1
+ * jQuery nearest v1.0.2
  * http://github.com/jjenzz/jQuery.nearest
  * ------------------------------------------------------
  * Copyright (c) 2012 J. Smith (@jjenzz)
@@ -24,7 +24,10 @@
 
         if (!s.indexOf('#')) {
           // selector starts with an ID
-          update((s.split(' ').length === 1 ? d.getElementById(s.slice(1)) : $(s)));
+          el = (s.split(' ').length === 1 ?
+            d.getElementById(s.slice(1)) :
+            (hasQsa ? d.querySelectorAll(s) : $(s)));
+          update(el);
         } else {
           // is a class or tag selector
           // so need to traverse
