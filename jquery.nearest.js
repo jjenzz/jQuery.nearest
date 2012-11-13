@@ -24,10 +24,7 @@
 
         if (!s.indexOf('#')) {
           // selector starts with an ID
-          el = (s.split(' ').length === 1 ?
-            d.getElementById(s.slice(1)) :
-            (hasQsa ? d.querySelectorAll(s) : $(s)));
-          update(el);
+          update((hasQsa ? d.querySelectorAll(s) : $(s)));
         } else {
           // is a class or tag selector
           // so need to traverse
