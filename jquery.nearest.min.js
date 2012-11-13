@@ -1,5 +1,5 @@
 /*!------------------------------------------------------
- * jQuery nearest
+ * jQuery nearest v1.0.0
  * http://github.com/jjenzz/jQuery.nearest
  * ------------------------------------------------------
  * Copyright (c) 2012 J. Smith (@jjenzz)
